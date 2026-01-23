@@ -1,0 +1,231 @@
+meta {
+  name: hello
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/hello
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~name: 
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+example {
+  name: 200 Response
+  description: Successful response
+  
+  request: {
+    url: {{baseUrl}}/hello
+    method: GET
+    mode: none
+    params:query: {
+      ~name: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: 400 Response
+  description: Invalid input data
+  
+  request: {
+    url: {{baseUrl}}/hello
+    method: GET
+    mode: none
+    params:query: {
+      ~name: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 400
+      text: Bad Request
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "code": "BAD_REQUEST",
+          "message": "Invalid input data",
+          "issues": []
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 401 Response
+  description: Authorization not provided
+  
+  request: {
+    url: {{baseUrl}}/hello
+    method: GET
+    mode: none
+    params:query: {
+      ~name: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 401
+      text: Unauthorized
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "code": "UNAUTHORIZED",
+          "message": "Authorization not provided",
+          "issues": []
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 403 Response
+  description: Insufficient access
+  
+  request: {
+    url: {{baseUrl}}/hello
+    method: GET
+    mode: none
+    params:query: {
+      ~name: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 403
+      text: Forbidden
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "code": "FORBIDDEN",
+          "message": "Insufficient access",
+          "issues": []
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 404 Response
+  description: Not found
+  
+  request: {
+    url: {{baseUrl}}/hello
+    method: GET
+    mode: none
+    params:query: {
+      ~name: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 404
+      text: Not Found
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "code": "NOT_FOUND",
+          "message": "Not found",
+          "issues": []
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 500 Response
+  description: Internal server error
+  
+  request: {
+    url: {{baseUrl}}/hello
+    method: GET
+    mode: none
+    params:query: {
+      ~name: 
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 500
+      text: Internal Server Error
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "code": "INTERNAL_SERVER_ERROR",
+          "message": "Internal server error",
+          "issues": []
+        }
+      '''
+    }
+  }
+}

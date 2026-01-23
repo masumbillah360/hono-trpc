@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "tRPC OpenAPI",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -4,8 +4,10 @@
     "dev": "bun run --hot src/index.ts"
   },
   "dependencies": {
+    "@hono/standard-validator": "^0.2.2",
     "@hono/trpc-server": "^0.4.2",
     "hono": "^4.11.5",
+    "hono-openapi": "^1.1.2",
     "trpc-to-openapi": "^3.1.0",
     "zod": "^4.3.6"
   },
